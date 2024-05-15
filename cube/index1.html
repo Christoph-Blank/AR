@@ -10,7 +10,14 @@
 <body>
 <a-scene vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false' renderer='antialias: true; alpha: true'>
     <a-camera gps-new-camera='gpsMinDistance: 5'></a-camera>
-    <a-entity material='color: red' geometry='primitive: box' gps-new-entity-place="latitude: 52.762963; longitude: 13.647386" scale="5 5 5"></a-entity>
+    <a-assets>
+        <a-asset-item
+          id="bowser"
+          src="https://raw.githubusercontent.com/Christoph-Blank/AR/main/bib/bowser.glb"
+        >
+        </a-asset-item>
+      </a-assets>
+    <a-entity id="bowser-model" gltf-model="#bowser" gps-new-entity-place="latitude: 52.762963; longitude: 13.647386" scale="0.05 0.05 0.05"></a-entity>
 </a-scene>
 </body>
 </html>
