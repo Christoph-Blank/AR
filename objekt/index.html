@@ -1,55 +1,53 @@
 <!DOCTYPE html>
+
 <html>
+  <head>
+    <title>Gesture Interactions - A-Frame & AR.js</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="styles.css">
 
-   <!-- Siehe hier: https://medium.com/chialab-open-source/how-to-deliver-ar-on-the-web-only-with-a-qr-code-e24b7b61f8cb  -->
-  
-  <!-- Mit den beiden Scripts wird die benötigte Open Soure Software verlinkt. Keine Änderung nötig.-->  
-<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
-<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
-  <!-- Hier beginnt die eigentliche Website. -->  
-<body style="margin : 0px; overflow: hidden; font-family: Monospace;"><div style="position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;">
-	AR.JS Beispiel mit Objekt
-</div>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="gesture-detector.js"></script>
+    <script src="gesture-handler.js"></script>
+  </head>
 
-  <!-- Mit dem folgenden Code wird AR.JS aktiviert. Keine Änderung nötig. -->
-  	<a-scene embedded arjs="debugUIEnabled: false; sourceType: webcam;">
-
-
-     		
-  <a-scene
-  arjs
-  embedded
-  renderer="logarithmicDepthBuffer: true;"
-  vr-mode-ui="enabled: false"
-  gesture-detector
-  id="scene"
->
-  <a-assets>
-    <a-asset-item
-      id="bowser"
-      src="https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb"
+  <body>
+    <a-scene
+      arjs
+      embedded
+      renderer="logarithmicDepthBuffer: true;"
+      vr-mode-ui="enabled: false"
+      gesture-detector
+      id="scene"
     >
-    </a-asset-item>
-  </a-assets>
+      <a-assets>
+        <a-asset-item
+          id="bowser"
+          src="https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb"
+        >
+        </a-asset-item>
+      </a-assets>
 
-  <a-marker
-    preset="hiro"
-    raycaster="objects: .clickable"
-    emitevents="true"
-    cursor="fuse: false; rayOrigin: mouse;"
-    id="markerA"
-  >
-    <a-entity
-      id="bowser-model"
-      gltf-model="#bowser"
-      position="0 0 0"
-      scale="0.05 0.05 0.05"
-      class="clickable"
-      gesture-handler
-    >
-    </a-entity>
-  </a-marker>
-  <a-entity camera></a-entity>
-</a-scene>
-</body>
+      <a-marker
+        preset="hiro"
+        raycaster="objects: .clickable"
+        emitevents="true"
+        cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
+      >
+        <a-entity
+          id="bowser-model"
+          gltf-model="#bowser"
+          position="0 0 0"
+          scale="0.05 0.05 0.05"
+          class="clickable"
+          gesture-handler
+        >
+        </a-entity>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
 </html>
