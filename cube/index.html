@@ -10,7 +10,7 @@
 <body>
 <a-scene vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false' renderer='antialias: true; alpha: true'>
     <a-camera gps-new-camera='gpsMinDistance: 5'></a-camera>
-    <a-entity material='color: red' geometry='primitive: ring'  gps-new-entity-place="latitude: 52.762963; longitude: 13.647386" radiusInner: "0.5" radiusOuter: "1"></a-entity>
+    <a-entity material='side: double' geometry='primitive: ring; radiusInner: 0.5; radiusOuter: 1' gps-new-entity-place="latitude: 52.762963; longitude: 13.647386"></a-entity>
 </a-scene>
 </body>
 </html>
